@@ -9,6 +9,9 @@ const NavBar = () => {
       soy el navbar
       <ConfigContainer>
         <Toogle />
+        <DarkmodeText>
+          Dark mode
+        </DarkmodeText>
         <ProfilePic src={profileimg} />
       </ConfigContainer>
     </NavbarContainer>
@@ -40,6 +43,10 @@ const ConfigContainer = styled.div`
   align-items: center;
   width: 250px;
   display: flex;
+`;
+
+const DarkmodeText = styled.b`
+  color: #bbb;
 `;
 
 export default NavBar;
