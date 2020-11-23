@@ -9,9 +9,7 @@ const NavBar = () => {
       soy el navbar
       <ConfigContainer>
         <Toogle />
-        <DarkmodeText>
-          Dark mode
-        </DarkmodeText>
+        <DarkmodeText>Dark mode</DarkmodeText>
         <ProfilePic src={profileimg} />
       </ConfigContainer>
     </NavbarContainer>

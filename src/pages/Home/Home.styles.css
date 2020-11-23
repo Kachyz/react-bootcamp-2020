@@ -1,5 +1,11 @@
 .homepage {
-  text-align: center;
+  width: 100%;
+}
+
+.mainContainer {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .homepage h1 {
