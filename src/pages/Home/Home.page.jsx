@@ -20,7 +20,6 @@ function HomePage() {
   }
 
   useEffect(() => {
-    console.log('kz veamos dijo el ciego');
     axios
       .get('https://content-youtube.googleapis.com/youtube/v3/search', {
         params: {
@@ -28,7 +27,7 @@ function HomePage() {
           maxResults: 25,
           part: 'id',
           part: 'snippet',
-          key: 'AIzaSyB0LUMtLY0dpX7Cnl5UsKeBWDNEue2WN3w',
+          key: process.env.REACT_APP_API_KEY,
         },
       })
       .then(function (response) {
