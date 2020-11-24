@@ -60,8 +60,14 @@ function HomePage() {
       */}
       <div className="mainContainer">
         { receivedData && (
-           receivedData.map((video) => <VideoCard thumbnail={video.snippet.thumbnails.high.url}/>)
-        )}
+           receivedData.map((video) => (
+             <VideoCard
+                thumbnail={video.snippet.thumbnails.high.url}
+                key={video.id.videoId}
+                title={video.snippet.title}
+             />
+           )
+        ))}
       </div>
     </div>
   );
