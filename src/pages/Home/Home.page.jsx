@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import VideoCard from '../../components/VideoCard';
 import axios from 'axios';
+import videoSearch from '../../mocks/videoSearch.json';
 
 import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
@@ -20,6 +21,10 @@ function HomePage() {
   }
 
   useEffect(() => {
+    console.log('process', videoSearch)
+    if(process.env.REACT_APP_MODE === 'DEV') {
+      setReceivedData(videoSearch.items)
+    } else {
     axios
       .get('https://content-youtube.googleapis.com/youtube/v3/search', {
         params: {
@@ -37,6 +42,7 @@ function HomePage() {
       .catch(function (error) {
         console.log('error', error);
       });
+    }
   }, []);
 
   return (
@@ -60,7 +66,9 @@ function HomePage() {
       */}
       <div className="mainContainer">
         { receivedData && (
-           receivedData.map((video) => (
+           receivedData
+            .filter(result => result.id.kind === "youtube#video" )
+            .map((video) => (
              <VideoCard
                 thumbnail={video.snippet.thumbnails.high.url}
                 key={video.id.videoId}
