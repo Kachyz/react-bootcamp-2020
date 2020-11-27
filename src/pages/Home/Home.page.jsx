@@ -73,6 +73,7 @@ function HomePage() {
                 thumbnail={video.snippet.thumbnails.high.url}
                 key={video.id.videoId}
                 title={video.snippet.title}
+                videoId={video.id.videoId}
              />
            )
         ))}
