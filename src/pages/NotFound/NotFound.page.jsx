@@ -7,9 +7,8 @@ function NotFoundPage() {
   return (
     <section className="not-found">
       <Link to="/" className="home-link">
-        home
+        <img src="404.gif" alt="page not found" />
       </Link>
-      <img src="404.gif" alt="page not found" />
     </section>
   );
 }
