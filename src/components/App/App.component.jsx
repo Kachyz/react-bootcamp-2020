@@ -12,7 +12,7 @@ import Fortune from '../Fortune';
 import Layout from '../Layout';
 import NavBar from '../Navbar';
 import { random } from '../../utils/fns';
-import VideoProvider  from '../../providers/Api/videosearch';
+import VideoProvider from '../../providers/Api/videosearch';
 
 function App() {
   useLayoutEffect(() => {

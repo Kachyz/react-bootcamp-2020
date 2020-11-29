@@ -3,10 +3,3 @@
   grid-template-columns: 70% 30%;
 }
 
-.selected-video {
-  border: solid white 2px;
-}
-
-.video-list {
-  border: solid 2px yellow;
-}

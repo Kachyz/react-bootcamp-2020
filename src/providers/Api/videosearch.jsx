@@ -15,7 +15,8 @@ const VideoProvider = ({ children }) => {
 
   useEffect(() => {
     if (process.env.REACT_APP_MODE === 'DEV') {
-      setReceivedData(videoSearchMock.items);
+      const filteredResults = videoSearchMock.items.filter(result => result.id.kind === "youtube#video" )
+      setReceivedData(filteredResults);
     } else {
       axios
         .get('https://content-youtube.googleapis.com/youtube/v3/search', {
@@ -29,7 +30,8 @@ const VideoProvider = ({ children }) => {
         })
         .then(function (response) {
           console.log('FROM API', response.data.items);
-          setReceivedData(response.data.items);
+          const filteredResults = response.data.items.filter(result => result.id.kind === "youtube#video" )
+          setReceivedData(filteredResults);
         })
         .catch(function (error) {
           console.log('error', error);

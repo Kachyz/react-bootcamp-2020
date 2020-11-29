@@ -41,7 +41,6 @@ function HomePage() {
       <div className="mainContainer">
         {videoData && (
            videoData
-            .filter(result => result.id.kind === "youtube#video" )
             .map((video) => (
              <VideoCard
                 thumbnail={video.snippet.thumbnails.high.url}

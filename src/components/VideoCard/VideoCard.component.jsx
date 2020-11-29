@@ -2,23 +2,21 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
-const VideoCard = props => {
+const VideoCard = (props) => {
   const { thumbnail, title, videoId } = props;
-  const fixedTitle = title
-    .replaceAll('&#39;', "'", 'g')
-    .replaceAll('&amp;', '&', 'g')
+  const fixedTitle = title.replaceAll('&#39;', "'", 'g').replaceAll('&amp;', '&', 'g');
   const degrees = Math.random() * 70 - 35;
 
   const history = useHistory();
 
   const showVideo = () => {
     history.push(`video/${videoId}`);
-  }
+  };
 
   return (
     <Container rotation={degrees} onClick={showVideo}>
-      <Thumbnail src={ thumbnail }/>
-      <Text>{ fixedTitle }</Text>
+      <Thumbnail src={thumbnail} />
+      <Text>{fixedTitle}</Text>
     </Container>
   );
 };
@@ -31,7 +29,7 @@ const Container = styled.button`
   text-align: center;
   margin: 35px;
   border: none;
-  transform: rotateZ( ${props => props.rotation}deg );
+  transform: rotateZ(${(props) => props.rotation}deg);
 `;
 
 const Thumbnail = styled.img`
