@@ -30,7 +30,7 @@ const VideoPage = () => {
             />
           </div>
           <div className="video-list">
-            <VideoList avoidId={id}/>
+            <VideoList avoidId={id} />
           </div>
         </>
       )}

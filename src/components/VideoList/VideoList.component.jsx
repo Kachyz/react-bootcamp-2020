@@ -21,23 +21,19 @@ const VideoList = ({ avoidId }) => {
   const showVideo = (videoId) => {
     setSelectedVideo(videoId);
     history.push(`/video/${videoId}`);
-  }
+  };
 
   return (
     <div>
-      {
-        videoList.map(({id, snippet}) => (
-          <ListElement onClick={() => showVideo(id.videoId)}>
-            <Thumbnail src={snippet.thumbnails.default.url} />
-            <ElementTitle>
-              { snippet.title }
-            </ElementTitle>
-          </ListElement>
-        ))
-      }
+      {videoList.map(({ id, snippet }) => (
+        <ListElement onClick={() => showVideo(id.videoId)}>
+          <Thumbnail src={snippet.thumbnails.default.url} />
+          <ElementTitle>{snippet.title}</ElementTitle>
+        </ListElement>
+      ))}
     </div>
   );
-}
+};
 
 const Thumbnail = styled.img`
   height: 100px;
@@ -46,14 +42,13 @@ const Thumbnail = styled.img`
 `;
 
 const ListElement = styled.div`
-  border: solid 1px #E2E2E222;
+  border: solid 1px #e2e2e222;
   display: flex;
 `;
 
 const ElementTitle = styled.p`
   font-size: 25px;
-  color: #D2D2D2;
-`
+  color: #d2d2d2;
+`;
 
 export default VideoList;
-
