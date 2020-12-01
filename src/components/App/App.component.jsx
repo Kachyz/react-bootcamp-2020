@@ -13,6 +13,7 @@ import Layout from '../Layout';
 import NavBar from '../Navbar';
 import { random } from '../../utils/fns';
 import VideoProvider from '../../providers/Api/videosearch';
+import ThemeProvider from '../../providers/Theme/ThemeProvider';
 
 function App() {
   useLayoutEffect(() => {
@@ -37,27 +38,29 @@ function App() {
     <BrowserRouter>
       <VideoProvider>
         <AuthProvider>
-          <NavBar />
-          <Layout>
-            <Switch>
-              <Route exact path="/">
-                <HomePage />
-              </Route>
-              <Route exact path="/video/:id">
-                <VideoPage />
-              </Route>
-              <Route exact path="/login">
-                <LoginPage />
-              </Route>
-              <Private exact path="/secret">
-                <SecretPage />
-              </Private>
-              <Route path="*">
-                <NotFound />
-              </Route>
-            </Switch>
-            <Fortune />
-          </Layout>
+          <ThemeProvider>
+            <NavBar />
+            <Layout>
+              <Switch>
+                <Route exact path="/">
+                  <HomePage />
+                </Route>
+                <Route exact path="/video/:id">
+                  <VideoPage />
+                </Route>
+                <Route exact path="/login">
+                  <LoginPage />
+                </Route>
+                <Private exact path="/secret">
+                  <SecretPage />
+                </Private>
+                <Route path="*">
+                  <NotFound />
+                </Route>
+              </Switch>
+              <Fortune />
+            </Layout>
+          </ThemeProvider>
         </AuthProvider>
       </VideoProvider>
     </BrowserRouter>

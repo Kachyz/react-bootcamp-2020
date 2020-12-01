@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { useHistory } from 'react-router';
+import { ThemeContext } from '../../providers/Theme/ThemeProvider';
 import styled from 'styled-components';
 
 const VideoCard = (props) => {
   const { thumbnail, title, videoId } = props;
   const fixedTitle = title.replaceAll('&#39;', "'", 'g').replaceAll('&amp;', '&', 'g');
   const degrees = Math.random() * 70 - 35;
+  const { theme } = useContext(ThemeContext);
 
   const history = useHistory();
 
@@ -14,7 +16,7 @@ const VideoCard = (props) => {
   };
 
   return (
-    <Container rotation={degrees} onClick={showVideo}>
+    <Container rotation={degrees} onClick={showVideo} background={theme.backgroundColor}>
       <Thumbnail src={thumbnail} />
       <Text>{fixedTitle}</Text>
     </Container>
@@ -23,7 +25,7 @@ const VideoCard = (props) => {
 
 const Container = styled.button`
   box-shadow: 3px 3px 5px black;
-  background: #e4e4e4;
+  background: ${props => props.background};
   width: 300px;
   height: 350px;
   text-align: center;
